@@ -25,7 +25,7 @@ void Init_sqlite3()
 //匹配用户名
 int sqlite3_user_exist(const char *name)
 {
-  int row,column,flag=0;
+  int row,column;
   const char *sql="select username from user;";
   char **result;
   char *errmsg;
@@ -37,10 +37,10 @@ int sqlite3_user_exist(const char *name)
   for(int i=0;i<row;i++)
   {
     if(!strcmp(result[i+column],name))//相等等于零
-    flag=1;
+    return 1;
   }
   sqlite3_free_table(result);
-  return flag;
+  return 0;
 }
 
 //客户端注册用户

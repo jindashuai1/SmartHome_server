@@ -40,8 +40,8 @@ int main()
   pthread_t tid;
   pthread_create(&tid,NULL,recv_handle,&sockfd);
   char msg[1024]={0};
-  const char *json="{\"username\":\"0002\",\"password\":\"1112\"}";
-  msg[0]=0x60;
+  const char *json="{\"username\":\"0005\",\"password\":\"1112\"}";
+  msg[0]=0x50;
   memcpy(msg+1,json,strlen(json));
   
   send(sockfd,msg,strlen(json)+1,0);

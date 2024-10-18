@@ -81,6 +81,7 @@ void epoll_listen(int epfd,int sockfd)
               break;
             case REGISTER:
               mqtt_register(events[i].data.fd,message);
+              break;
             case LOGIN:
               mqtt_login(events[i].data.fd,message);
               break;
